@@ -47,6 +47,7 @@ void prompt(char str[], int n) {
 		login[3] = '\0';
 //		perror("user error");
 	}
+
 	cout << login << "@" << host << "$ ";
 
         cin.getline(str,n);
