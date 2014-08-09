@@ -35,7 +35,7 @@ void prompt(char str[], int n) {
 		host[2] = 's';
 		host[3] = 't';
 		host[4] = '\0';
-//		perror("hostname error");
+		perror("Error getting hostname");
 	}
 
 	char login[50];
@@ -45,7 +45,7 @@ void prompt(char str[], int n) {
 		login[1] = 's';
 		login[2] = 'r';
 		login[3] = '\0';
-//		perror("user error");
+		perror("Error getting user login");
 	}
 
 	cout << login << "@" << host << "$ ";
@@ -100,13 +100,20 @@ while (true) {
 
 	//Executes the command
 	int pid = fork();
+	
+	if (pid < 0) {
+		perror("fork failed");
+		exit(1);
+	}
 	if (pid == 0) {
 		if (execvp(result[0], result) == -1) {
 			perror("execl failed");
 		}
 		exit(0);
 	} else {
-		wait(0);
+		if (wait(0) == -1) {
+			perror("wait failed");
+		}
 	}
 
 }
