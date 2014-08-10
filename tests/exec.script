@@ -1,328 +1,73 @@
-Script started on Thu 07 Aug 2014 02:16:54 AM PDT
-]0;brunna@brunna-SVF14A15CXB: ~/Documents/cs100/rshellbrunna@brunna-SVF14A15CXB:~/Documents/cs100/rshell$ bin/rshell 
-usr@brunna-SVF14A15CXB$ ls
-bin  exec.script  LICENSE  main.o  Makefile  README.md	src  tests
-usr@brunna-SVF14A15CXB$ ls -L lR #space befor 'R'    e 'R'                Fun   command not recognized i with spaces befora e 'R'
-.:
+Script started on Sun 10 Aug 2014 10:26:06 AM PDT
+~
+bamor002@well $ cd cs100/rshell/
+~/cs100/rshell
+bamor002@well $ make
+g++ -c -Wall -Werror -ansi -pedantic src/main.cpp
+mkdir bin
+g++ main.o -o ./bin/rshell
+~/cs100/rshell
+bamor002@well $ bin.r[K[K/rshell 
+bamor002@well.cs.ucr.edu$ ls -l
 total 32
-drwxrwxr-x 2 brunna brunna 4096 Aug  7 02:09 bin
--rw-rw-r-- 1 brunna brunna    0 Aug  7 02:16 exec.script
--rw-rw-r-- 1 brunna brunna 1483 Aug  6 16:41 LICENSE
--rw-rw-r-- 1 brunna brunna 5120 Aug  7 02:09 main.o
--rw-rw-r-- 1 brunna brunna  145 Aug  6 23:02 Makefile
--rw-rw-r-- 1 brunna brunna   14 Aug  6 16:41 README.md
-drwxrwxr-x 2 brunna brunna 4096 Aug  7 02:09 src
-drwxrwxr-x 2 brunna brunna 4096 Aug  7 00:49 tests
-
-./bin:
-total 16
--rwxrwxr-x 1 brunna brunna 13823 Aug  7 02:09 rshell
-
-./src:
-total 20
--rwxrwxr-x 1 brunna brunna 13823 Aug  7 02:09 a.out
--rw-rw-r-- 1 brunna brunna  1968 Aug  7 02:08 main.cpp
-
-./tests:
-total 0
-usr@brunna-SVF14A15CXB$ firefox
-
-(process:3414): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
-usr@brunna-SVF14A15CXB$ #new firefox window opened
-usr@brunna-SVF14A15CXB$ 
-usr@brunna-SVF14A15CXB$ pwd
-/home/brunna/Documents/cs100/rshell
-usr@brunna-SVF14A15CXB$ ps
-  PID TTY          TIME CMD
- 3393 pts/23   00:00:00 bash
- 3405 pts/23   00:00:00 rshell
- 3425 pts/23   00:00:00 ps
-usr@brunna-SVF14A15CXB$ firafox    efox & #prompt is printed again, but process is not in backgroung
-usr@brunna-SVF14A15CXB$ ps
-  PID TTY          TIME CMD
- 3393 pts/23   00:00:00 bash
- 3405 pts/23   00:00:00 rshell
- 3426 pts/23   00:00:00 ps
-usr@brunna-SVF14A15CXB$ ls
-usr@brunna-SVF14A15CXB$ ca  ls
+drwx------ 2 bamor002 classes 4096 Aug 10 10:26 bin
+-rw------- 1 bamor002 classes    0 Aug 10 10:26 exec.script
+-rw------- 1 bamor002 classes 1483 Aug 10 08:54 LICENSE
+-rw------- 1 bamor002 classes 5184 Aug 10 10:26 main.o
+-rw------- 1 bamor002 classes  145 Aug 10 08:54 Makefile
+-rw------- 1 bamor002 classes  965 Aug 10 08:54 README.md
+drwx------ 2 bamor002 classes 4096 Aug 10 10:25 src
+drwx------ 2 bamor002 classes 4096 Aug 10 08:54 tests
+bamor002@well.cs.ucr.edu$ ls #-la
 bin  exec.script  LICENSE  main.o  Makefile  README.md	src  tests
-usr@brunna-SVF14A15CXB$ cat re      ls           -l -                   -a
-total 44
-drwxrwxr-x 6 brunna brunna 4096 Aug  7 02:16 .
-drwxrwxr-x 3 brunna brunna 4096 Aug  6 16:41 ..
-drwxrwxr-x 2 brunna brunna 4096 Aug  7 02:09 bin
--rw-rw-r-- 1 brunna brunna    0 Aug  7 02:16 exec.script
-drwxrwxr-x 8 brunna brunna 4096 Aug  7 00:43 .git
--rw-rw-r-- 1 brunna brunna 1483 Aug  6 16:41 LICENSE
--rw-rw-r-- 1 brunna brunna 5120 Aug  7 02:09 main.o
--rw-rw-r-- 1 brunna brunna  145 Aug  6 23:02 Makefile
--rw-rw-r-- 1 brunna brunna   14 Aug  6 16:41 README.md
-drwxrwxr-x 2 brunna brunna 4096 Aug  7 02:09 src
-drwxrwxr-x 2 brunna brunna 4096 Aug  7 00:49 tests
-usr@brunna-SVF14A15CXB$                             ls -a        l Rl
-.:
-total 44
-drwxrwxr-x 6 brunna brunna 4096 Aug  7 02:16 .
-drwxrwxr-x 3 brunna brunna 4096 Aug  6 16:41 ..
-drwxrwxr-x 2 brunna brunna 4096 Aug  7 02:09 bin
--rw-rw-r-- 1 brunna brunna    0 Aug  7 02:16 exec.script
-drwxrwxr-x 8 brunna brunna 4096 Aug  7 00:43 .git
--rw-rw-r-- 1 brunna brunna 1483 Aug  6 16:41 LICENSE
--rw-rw-r-- 1 brunna brunna 5120 Aug  7 02:09 main.o
--rw-rw-r-- 1 brunna brunna  145 Aug  6 23:02 Makefile
--rw-rw-r-- 1 brunna brunna   14 Aug  6 16:41 README.md
-drwxrwxr-x 2 brunna brunna 4096 Aug  7 02:09 src
-drwxrwxr-x 2 brunna brunna 4096 Aug  7 00:49 tests
+bamor002@well.cs.ucr.edu$ #tsting comments^[[D                  esting commm ents
+bamor002@well.cs.ucr.edu$ 
+bamor002@well.cs.ucr.edu$                ls        -l #test spaces between commands
+total 32
+drwx------ 2 bamor002 classes 4096 Aug 10 10:26 bin
+-rw------- 1 bamor002 classes    0 Aug 10 10:26 exec.script
+-rw------- 1 bamor002 classes 1483 Aug 10 08:54 LICENSE
+-rw------- 1 bamor002 classes 5184 Aug 10 10:26 main.o
+-rw------- 1 bamor002 classes  145 Aug 10 08:54 Makefile
+-rw------- 1 bamor002 classes  965 Aug 10 08:54 README.md
+drwx------ 2 bamor002 classes 4096 Aug 10 10:25 src
+drwx------ 2 bamor002 classes 4096 Aug 10 08:54 tests
+bamor002@well.cs.ucr.edu$ mkdir newFolder
+bamor002@well.cs.ucr.edu$ ls #verify the new folder
+bin  exec.script  LICENSE  main.o  Makefile  newFolder	README.md  src	tests
+bamor002@well.cs.ucr.edu$ touch newFile
+bamor002@well.cs.ucr.edu$ ls
+bin	     LICENSE  Makefile	newFolder  src
+exec.script  main.o   newFile	README.md  tests
+bamor002@well.cs.ucr.edu$ ps
+  PID TTY          TIME CMD
+18741 pts/18   00:00:00 bash
+18753 pts/18   00:00:00 rshell
+18778 pts/18   00:00:00 ps
+bamor002@well.cs.ucr.edu$ firefox &
+bamor002@well.cs.ucr.edu$ ps
+  PID TTY          TIME CMD
+18741 pts/18   00:00:00 bash
+18753 pts/18   00:00:00 rshell
+18782 pts/18   00:00:00 firefox
+18792 pts/18   00:00:00 firefox
+18793 pts/18   00:00:00 ps
+bamor002@well.cs.ucr.edu$ Error: cannot open display: :0
 
-./bin:
-total 24
-drwxrwxr-x 2 brunna brunna  4096 Aug  7 02:09 .
-drwxrwxr-x 6 brunna brunna  4096 Aug  7 02:16 ..
--rwxrwxr-x 1 brunna brunna 13823 Aug  7 02:09 rshell
+bamor002@well.cs.ucr.edu$ #test open          geany &         &    #test with spaces 
+bamor002@well.cs.ucr.edu$ ps
+bamor002@well.cs.ucr.edu$   PID TTY          TIME CMD
+18741 pts/18   00:00:00 bash
+18753 pts/18   00:00:00 rshell
+18819 pts/18   00:00:00 geany
+18820 pts/18   00:00:00 ps
 
-./.git:
-total 56
-drwxrwxr-x  8 brunna brunna 4096 Aug  7 00:43 .
-drwxrwxr-x  6 brunna brunna 4096 Aug  7 02:16 ..
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 branches
--rw-rw-r--  1 brunna brunna   28 Aug  6 23:08 COMMIT_EDITMSG
--rw-rw-r--  1 brunna brunna  263 Aug  6 16:41 config
--rw-rw-r--  1 brunna brunna   73 Aug  6 16:41 description
--rw-rw-r--  1 brunna brunna   23 Aug  6 16:41 HEAD
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 hooks
--rw-rw-r--  1 brunna brunna  408 Aug  7 00:28 index
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 info
-drwxrwxr-x  3 brunna brunna 4096 Aug  6 16:41 logs
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 objects
--rw-rw-r--  1 brunna brunna  107 Aug  6 16:41 packed-refs
-drwxrwxr-x  5 brunna brunna 4096 Aug  6 16:41 refs
+bamor002@well.cs.ucr.edu$ Geany: cannot open display
 
-./.git/branches:
-total 8
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 8 brunna brunna 4096 Aug  7 00:43 ..
 
-./.git/hooks:
-total 48
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 8 brunna brunna 4096 Aug  7 00:43 ..
--rwxrwxr-x 1 brunna brunna  452 Aug  6 16:41 applypatch-msg.sample
--rwxrwxr-x 1 brunna brunna  896 Aug  6 16:41 commit-msg.sample
--rwxrwxr-x 1 brunna brunna  189 Aug  6 16:41 post-update.sample
--rwxrwxr-x 1 brunna brunna  398 Aug  6 16:41 pre-applypatch.sample
--rwxrwxr-x 1 brunna brunna 1642 Aug  6 16:41 pre-commit.sample
--rwxrwxr-x 1 brunna brunna 1239 Aug  6 16:41 prepare-commit-msg.sample
--rwxrwxr-x 1 brunna brunna 1352 Aug  6 16:41 pre-push.sample
--rwxrwxr-x 1 brunna brunna 4898 Aug  6 16:41 pre-rebase.sample
--rwxrwxr-x 1 brunna brunna 3611 Aug  6 16:41 update.sample
-
-./.git/info:
-total 12
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 8 brunna brunna 4096 Aug  7 00:43 ..
--rw-rw-r-- 1 brunna brunna  240 Aug  6 16:41 exclude
-
-./.git/logs:
-total 16
-drwxrwxr-x 3 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 8 brunna brunna 4096 Aug  7 00:43 ..
--rw-rw-r-- 1 brunna brunna  541 Aug  6 23:08 HEAD
-drwxrwxr-x 4 brunna brunna 4096 Aug  6 16:41 refs
-
-./.git/logs/refs:
-total 16
-drwxrwxr-x 4 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 3 brunna brunna 4096 Aug  6 16:41 ..
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 16:41 heads
-drwxrwxr-x 3 brunna brunna 4096 Aug  6 16:41 remotes
-
-./.git/logs/refs/heads:
-total 12
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 4 brunna brunna 4096 Aug  6 16:41 ..
--rw-rw-r-- 1 brunna brunna  541 Aug  6 23:08 master
-
-./.git/logs/refs/remotes:
-total 12
-drwxrwxr-x 3 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 4 brunna brunna 4096 Aug  6 16:41 ..
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 16:48 origin
-
-./.git/logs/refs/remotes/origin:
-total 16
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 16:48 .
-drwxrwxr-x 3 brunna brunna 4096 Aug  6 16:41 ..
--rw-rw-r-- 1 brunna brunna  199 Aug  6 16:41 HEAD
--rw-rw-r-- 1 brunna brunna  292 Aug  6 23:08 master
-
-./.git/objects:
-total 76
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 .
-drwxrwxr-x  8 brunna brunna 4096 Aug  7 00:43 ..
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:48 0b
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 23:06 1f
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:48 21
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 22:54 2b
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 23:08 42
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 23:06 43
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 5b
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:48 5f
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 69
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 23:08 77
-drwxrwxr-x  2 brunna brunna 4096 Aug  7 00:28 90
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 92
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:48 9d
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 23:08 cf
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:43 e6
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 info
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 pack
-
-./.git/objects/0b:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:48 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna  145 Aug  6 16:48 026b24ec3ae827935bb6f8f3e5042e90f13e60
-
-./.git/objects/1f:
-total 16
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 23:06 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna  538 Aug  6 23:06 19044f6dfd1500256ff5a3c0c32df6b248d808
--r--r--r--  1 brunna brunna   85 Aug  6 16:41 654df69d380a61e7ea2fa97d5fbc27516d1df2
-
-./.git/objects/21:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:48 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna   49 Aug  6 16:48 5301ca03d6c12a114f9d95ad2f727d716df75e
-
-./.git/objects/2b:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 22:54 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna  564 Aug  6 22:54 94c5519cacb46ddea78799af8af7ad583a12fe
-
-./.git/objects/42:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 23:08 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna   53 Aug  6 23:08 a612b5f3ab1cbdcbb03a1047a69005ad255986
-
-./.git/objects/43:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 23:06 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna  115 Aug  6 23:06 14d58ab052ce4f0383924f84702d78b9469507
-
-./.git/objects/5b:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna   26 Aug  6 16:41 047db65097b7f2853a6952df6e10bc51eb99ab
-
-./.git/objects/5f:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:48 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna  174 Aug  6 16:48 14e4fd2bb0524d1ea84d1ead3c8e1e42a516f6
-
-./.git/objects/69:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna  130 Aug  6 16:41 bbe88b0165c2556c8e5a9afb1249974c82ffab
-
-./.git/objects/77:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 23:08 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna  176 Aug  6 23:08 41f45c76dad1dca63c9b920dcb7403886180dc
-
-./.git/objects/90:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  7 00:28 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna  804 Aug  7 00:28 b2697ce30bf74cb551ebdb62d8c08851148332
-
-./.git/objects/92:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna  815 Aug  6 16:41 69600422ed6ebb97c683e667f7dbdf31915593
-
-./.git/objects/9d:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:48 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna   53 Aug  6 16:48 7e32cbc772e91217d43591e46aa70e244278aa
-
-./.git/objects/cf:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 23:08 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna  168 Aug  6 23:08 e9d8507f03e2afde14379d2049a21f525f52c9
-
-./.git/objects/e6:
-total 12
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:43 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
--r--r--r--  1 brunna brunna   15 Aug  6 16:43 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
-
-./.git/objects/info:
-total 8
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
-
-./.git/objects/pack:
-total 8
-drwxrwxr-x  2 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 19 brunna brunna 4096 Aug  7 00:28 ..
-
-./.git/refs:
-total 20
-drwxrwxr-x 5 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 8 brunna brunna 4096 Aug  7 00:43 ..
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 23:08 heads
-drwxrwxr-x 3 brunna brunna 4096 Aug  6 16:41 remotes
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 16:41 tags
-
-./.git/refs/heads:
-total 12
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 23:08 .
-drwxrwxr-x 5 brunna brunna 4096 Aug  6 16:41 ..
--rw-rw-r-- 1 brunna brunna   41 Aug  6 23:08 master
-
-./.git/refs/remotes:
-total 12
-drwxrwxr-x 3 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 5 brunna brunna 4096 Aug  6 16:41 ..
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 23:08 origin
-
-./.git/refs/remotes/origin:
-total 16
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 23:08 .
-drwxrwxr-x 3 brunna brunna 4096 Aug  6 16:41 ..
--rw-rw-r-- 1 brunna brunna   32 Aug  6 16:41 HEAD
--rw-rw-r-- 1 brunna brunna   41 Aug  6 23:08 master
-
-./.git/refs/tags:
-total 8
-drwxrwxr-x 2 brunna brunna 4096 Aug  6 16:41 .
-drwxrwxr-x 5 brunna brunna 4096 Aug  6 16:41 ..
-
-./src:
-total 28
-drwxrwxr-x 2 brunna brunna  4096 Aug  7 02:09 .
-drwxrwxr-x 6 brunna brunna  4096 Aug  7 02:16 ..
--rwxrwxr-x 1 brunna brunna 13823 Aug  7 02:09 a.out
--rw-rw-r-- 1 brunna brunna  1968 Aug  7 02:08 main.cpp
-
-./tests:
-total 8
-drwxrwxr-x 2 brunna brunna 4096 Aug  7 00:49 .
-drwxrwxr-x 6 brunna brunna 4096 Aug  7 02:16 ..
-usr@brunna-SVF14A15CXB$ exit
-]0;brunna@brunna-SVF14A15CXB: ~/Documents/cs100/rshellbrunna@brunna-SVF14A15CXB:~/Documents/cs100/rshell$ exit
+bamor002@well.cs.ucr.edu$ exit
+~/cs100/rshell
+bamor002@well $ exit
 exit
 
-Script done on Thu 07 Aug 2014 02:22:41 AM PDT
+Script done on Sun 10 Aug 2014 10:31:16 AM PDT

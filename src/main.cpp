@@ -22,6 +22,7 @@ bool background(char str[], int n) {
 	for (int i = 0; i < n; i ++) {
 		if (str[i] == '&') {
 			bg = true;
+			str[i] = '\0';
 		}
 	}
 	return bg;
@@ -52,12 +53,6 @@ void prompt(char str[], int n) {
 
         cin.getline(str,n);
 
-	//Check if there is '&' in the input. If its true, the prompt will be called again
-	if(background(str, n) == true) {
-		cout << login  << "@" << host << "$ ";
-		cin.getline(str,n);
-	}
-
 	//Check if some comment has been made in the input
         while (str[0] == '\0' || str[0] == '#') {
                 cout << login << "@" << host << "$ ";
@@ -82,7 +77,7 @@ while (true) {
 	int index = 0;
 
 	comment(str, 256);
-
+	bool bgProcess = background(str, 256);
 	//Initialize *result[] with the user input, splited by spaces 
 	while (pch != NULL)
 	{
@@ -107,12 +102,14 @@ while (true) {
 	}
 	if (pid == 0) {
 		if (execvp(result[0], result) == -1) {
-			perror("execl failed");
+			perror("execvp failed");
 		}
 		exit(0);
 	} else {
-		if (wait(0) == -1) {
-			perror("wait failed");
+		if (!bgProcess) {
+			if (wait(0) == -1) {
+				perror("wait failed");
+			}
 		}
 	}
 
