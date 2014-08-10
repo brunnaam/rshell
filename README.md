@@ -18,6 +18,5 @@ BUGS:
 1. Commands like cd or '>' are not implemented. 
 2. The 'echo' command works, but when echo "hello world" the output will be "hello world" instead of just hello world.
 3. There is a limitation on the size of the user input, where the maximum number of characters supported are 256. If the user type more that it, the rshell will exit.
-4. The command '&' prints the prompt right after called, but it don't send the process to the backgroung.
-5. Don't handle files with spaces in the name.
+4. Don't handle files with spaces in the name.
 
