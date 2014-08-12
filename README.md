@@ -10,7 +10,7 @@ When started, rshell prints the user name and the hostname along with '$', telli
 
 HOW TO BUILD
 
-Rshell has a Makefile to be build. To use it, clone the repository and type 'make'. This will create a folder /bin, where the executable file, rshell, is. 
+Rshell has a Makefile to be build. To use it, clone the repository and type 'make'. This will create a folder /bin, where the executable file, rshell, is. The bin folder will also have a ls executable, which is a implementation of the linux command 'ls'.
 
 
 BUGS:
@@ -20,3 +20,9 @@ BUGS:
 3. There is a limitation on the size of the user input, where the maximum number of characters supported are 256. If the user type more that it, the rshell will exit.
 4. Don't handle files with spaces in the name.
 
+
+LS BUGS
+1. The flag -R identifies some directories and some files, but not all as should be.
+2. The flag -R can be used with -l, but do not with -a
+2. Ls does not list files of directories passed by argument.
+3. Flags don't work for files passed by argument. A valid entry will be: bin/ls example.txt
