@@ -22,7 +22,11 @@ BUGS:
 
 
 LS BUGS
+
 1. The flag -R identifies some directories and some files, but not all as should be.
+
 2. The flag -R can be used with -l, but do not with -a
-2. Ls does not list files of directories passed by argument.
-3. Flags don't work for files passed by argument. A valid entry will be: bin/ls example.txt
+
+3. Ls does not list files of directories passed by argument.
+
+4. Flags don't work for files passed by argument. A valid entry will be: bin/ls example.txt
