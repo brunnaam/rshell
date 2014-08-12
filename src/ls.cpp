@@ -45,22 +45,6 @@ void details(struct stat fileStat) {
 }
 
 
-void rCommand(dirent *entry, string curDir) {
-
-	if (entry->d_type == DT_DIR){	// if entry is a directory
-		string fname = entry->d_name;
-		if (fname != "." && fname != "..")
-			rCommand(entry, entry->d_name);
-	}
-	else if (entry->d_type == DT_REG){	// if entry is a regular file
-		string fname = entry->d_name;	// filename
-		cout << entry->d_name << endl;
-
-	}
-
-}
-
-
 bool ignore(string command) { //if the file starts with .
 	bool ignore = false;
 	char c = '.';
@@ -88,24 +72,25 @@ void aCommand(string name, struct stat fileStat) {
 	cout << name << endl;
 }
 
-//tratar chamadas a files e dir
 void ls(char **argv, int argc, string directory) {
-	//char *dirName = ".";
 	
         DIR *dirp;
         if (!(dirp = opendir(directory.c_str())))
         {
-                cerr << "Error(" << errno << ") opening " << directory.c_str() << std::endl;
-                //return errno;
+		perror("Erro opendir");
 		return;
         }
 
         dirent *direntp;
         while ((direntp = readdir(dirp))) {
 
+		if (errno != 0) perror("Error readdir");
+
                 struct stat fileStat;
-                if(stat(direntp->d_name,&fileStat) < 0)
+                if(stat(direntp->d_name,&fileStat) < 0) {
+			perror("Stat error");
                         return;
+		}
 
 		bool flagA = false;
 		bool flagL = false;
@@ -180,12 +165,12 @@ void ls(char **argv, int argc, string directory) {
                                 if ((strcmp(argv[1], direntp->d_name) == 0) && !ignore(direntp->d_name)) {
                                         cout << direntp->d_name << endl;
                                 }
-                        }
+                        } 
 
 		}
         }
 
-        closedir(dirp);
+        if (closedir(dirp) == -1) perror("Error closedir");
 
 }
  
