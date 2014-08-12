@@ -1,0 +1,162 @@
+Script started on Tue 12 Aug 2014 12:50:48 PM PDT
+~
+bamor002@well $ ls
+[00m[00;34mcs100[00m/
+[m~
+bamor002@well $ cd r[Kcs100/rshell/
+~/cs100/rshell
+bamor002@well $ make
+g++ -c -Wall -Werror -ansi -pedantic src/main.cpp
+mkdir bin
+g++ main.o -o ./bin/rshell
+g++ -c -Wall -Werror -ansi -pedantic src/ls.cpp
+g++ ls.o -o ./bin/ls
+~/cs100/rshell
+bamor002@well $ bin/ls
+LICENSE
+Makefile
+README.md
+src
+tests
+ls.script
+main.o
+bin
+ls.o
+~/cs100/rshell
+bamor002@well $ #bin/ls is the[K[K[Kequal to the ls command
+~/cs100/rshell
+bamor002@well $ #bin/ls is equal to the ls command[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cbin/ls[K -l
+-rw------- 1 bamor002 classes    1483  Aug 10 08:54 LICENSE
+-rw------- 1 bamor002 classes     243  Aug 12 12:22 Makefile
+-rw------- 1 bamor002 classes     859  Aug 11 01:14 README.md
+drwx------ 2 bamor002 classes    4096  Aug 12 12:40 src
+drwx------ 2 bamor002 classes    4096  Aug 10 10:34 tests
+-rw------- 1 bamor002 classes       0  Aug 12 12:50 ls.script
+-rw------- 1 bamor002 classes    5208  Aug 12 12:51 main.o
+drwx------ 2 bamor002 classes    4096  Aug 12 12:51 bin
+-rw------- 1 bamor002 classes   23152  Aug 12 12:51 ls.o
+~/cs100/rshell
+bamor002@well $ bin/ls -l[Ka
+.
+..
+.git
+LICENSE
+Makefile
+README.md
+src
+tests
+ls.script
+main.o
+bin
+ls.o
+~/cs100/rshell
+bamor002@well $ bin/ls -a -l
+drwx------ 6 bamor002 classes    4096  Aug 12 12:51 .
+drwx------ 8 bamor002 classes    4096  Aug 12 11:47 ..
+drwx------ 8 bamor002 classes    4096  Aug 12 12:45 .git
+-rw------- 1 bamor002 classes    1483  Aug 10 08:54 LICENSE
+-rw------- 1 bamor002 classes     243  Aug 12 12:22 Makefile
+-rw------- 1 bamor002 classes     859  Aug 11 01:14 README.md
+drwx------ 2 bamor002 classes    4096  Aug 12 12:40 src
+drwx------ 2 bamor002 classes    4096  Aug 10 10:34 tests
+-rw------- 1 bamor002 classes       0  Aug 12 12:50 ls.script
+-rw------- 1 bamor002 classes    5208  Aug 12 12:51 main.o
+drwx------ 2 bamor002 classes    4096  Aug 12 12:51 bin
+-rw------- 1 bamor002 classes   23152  Aug 12 12:51 ls.o
+~/cs100/rshell
+bamor002@well $ bin/ls -a -l[K[K[K[Kl -a
+drwx------ 6 bamor002 classes    4096  Aug 12 12:51 .
+drwx------ 8 bamor002 classes    4096  Aug 12 11:47 ..
+drwx------ 8 bamor002 classes    4096  Aug 12 12:45 .git
+-rw------- 1 bamor002 classes    1483  Aug 10 08:54 LICENSE
+-rw------- 1 bamor002 classes     243  Aug 12 12:22 Makefile
+-rw------- 1 bamor002 classes     859  Aug 11 01:14 README.md
+drwx------ 2 bamor002 classes    4096  Aug 12 12:40 src
+drwx------ 2 bamor002 classes    4096  Aug 10 10:34 tests
+-rw------- 1 bamor002 classes       0  Aug 12 12:50 ls.script
+-rw------- 1 bamor002 classes    5208  Aug 12 12:51 main.o
+drwx------ 2 bamor002 classes    4096  Aug 12 12:51 bin
+-rw------- 1 bamor002 classes   23152  Aug 12 12:51 ls.o
+~/cs100/rshell
+bamor002@well $ bin/ls -l -a[K[K[Ka
+drwx------ 6 bamor002 classes    4096  Aug 12 12:51 .
+drwx------ 8 bamor002 classes    4096  Aug 12 11:47 ..
+drwx------ 8 bamor002 classes    4096  Aug 12 12:45 .git
+-rw------- 1 bamor002 classes    1483  Aug 10 08:54 LICENSE
+-rw------- 1 bamor002 classes     243  Aug 12 12:22 Makefile
+-rw------- 1 bamor002 classes     859  Aug 11 01:14 README.md
+drwx------ 2 bamor002 classes    4096  Aug 12 12:40 src
+drwx------ 2 bamor002 classes    4096  Aug 10 10:34 tests
+-rw------- 1 bamor002 classes       0  Aug 12 12:50 ls.script
+-rw------- 1 bamor002 classes    5208  Aug 12 12:51 main.o
+drwx------ 2 bamor002 classes    4096  Aug 12 12:51 bin
+-rw------- 1 bamor002 classes   23152  Aug 12 12:51 ls.o
+~/cs100/rshell
+bamor002@well $ bin/ls -la[K[Kal
+drwx------ 6 bamor002 classes    4096  Aug 12 12:51 .
+drwx------ 8 bamor002 classes    4096  Aug 12 11:47 ..
+drwx------ 8 bamor002 classes    4096  Aug 12 12:45 .git
+-rw------- 1 bamor002 classes    1483  Aug 10 08:54 LICENSE
+-rw------- 1 bamor002 classes     243  Aug 12 12:22 Makefile
+-rw------- 1 bamor002 classes     859  Aug 11 01:14 README.md
+drwx------ 2 bamor002 classes    4096  Aug 12 12:40 src
+drwx------ 2 bamor002 classes    4096  Aug 10 10:34 tests
+-rw------- 1 bamor002 classes       0  Aug 12 12:50 ls.script
+-rw------- 1 bamor002 classes    5208  Aug 12 12:51 main.o
+drwx------ 2 bamor002 classes    4096  Aug 12 12:51 bin
+-rw------- 1 bamor002 classes   23152  Aug 12 12:51 ls.o
+~/cs100/rshell
+bamor002@well $ bin/ls -al[K[KR
+
+./.git
+LICENSE
+Makefile
+README.md
+
+./src
+
+./tests
+ls.script
+main.o
+
+./bin
+ls.o
+~/cs100/rshell
+bamor002@well $ bin/ls -Rl
+
+-rw------- 1 bamor002 classes    1483  Aug 10 08:54 LICENSE
+-rw------- 1 bamor002 classes     243  Aug 12 12:22 Makefile
+-rw------- 1 bamor002 classes     859  Aug 11 01:14 README.md
+drwx------ 2 bamor002 classes    4096  Aug 12 12:40 src
+
+drwx------ 2 bamor002 classes    4096  Aug 10 10:34 tests
+
+-rw------- 1 bamor002 classes       0  Aug 12 12:50 ls.script
+-rw------- 1 bamor002 classes    5208  Aug 12 12:51 main.o
+drwx------ 2 bamor002 classes    4096  Aug 12 12:51 bin
+
+-rw------- 1 bamor002 classes   23152  Aug 12 12:51 ls.o
+~/cs100/rshell
+bamor002@well $ #command -[K[K[K[K[K[K[K[K[KFlag -R is not working properly. It identifies co[K[Ksome directories and files, but not all of them
+~/cs100/rshell
+bamor002@well $ #Flag -R is not working properly. It identifies some directories and files, but not all of them[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cbin/ls -Rl[K[K[K[Kmain.[K[K[K[K[KMakefile
+Makefile
+~/cs100/rshell
+bamor002@well $ bin/ls Makefile -l
+-rw------- 1 bamor002 classes    1483  Aug 10 08:54 LICENSE
+-rw------- 1 bamor002 classes     243  Aug 12 12:22 Makefile
+Makefile
+-rw------- 1 bamor002 classes     859  Aug 11 01:14 README.md
+drwx------ 2 bamor002 classes    4096  Aug 12 12:40 src
+drwx------ 2 bamor002 classes    4096  Aug 10 10:34 tests
+-rw------- 1 bamor002 classes       0  Aug 12 12:50 ls.script
+-rw------- 1 bamor002 classes    5208  Aug 12 12:51 main.o
+drwx------ 2 bamor002 classes    4096  Aug 12 12:51 bin
+-rw------- 1 bamor002 classes   23152  Aug 12 12:51 ls.o
+~/cs100/rshell
+bamor002@well $ #bug: the combination between files and flags don[Kes not work
+~/cs100/rshell
+bamor002@well $ exit
+exit
+
+Script done on Tue 12 Aug 2014 12:55:46 PM PDT
