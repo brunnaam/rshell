@@ -30,3 +30,11 @@ LS BUGS
 3. Ls does not list files of directories passed by argument.
 
 4. Flags don't work for files passed by argument. A valid entry will be: bin/ls example.txt
+
+
+RSHELL V.2 BUGS
+
+1. The 'history' and 'ps aux' commands don't work while using piping.
+2. The user input has to be separated by spaces, or it will return error, i.e: command [args] <'>>','>','<','|'> output.
+3. It's not possible use input redirection, output redirection and piping in the same user input.
+4. When piping, it is possible to use mutiple piping, but with input and output redirection it isn't.
