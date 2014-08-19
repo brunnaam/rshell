@@ -1,0 +1,124 @@
+Script started on Tue 19 Aug 2014 12:32:20 PM PDT
+~
+bamor002@well $ cd cs100/rshell3/rshell/
+~/cs100/rshell3/rshell
+bamor002@well $ ls
+[00m[00;34mbin[00m/  [00mfile[00m  [00mhw3.script[00m  [00mLICENSE[00m  [00mls.o[00m  [00mmain.o[00m  [00mMakefile[00m  [00mREADME.md[00m  [00;34msrc[00m/  [00;34mtests[00m/
+[m~/cs100/rshell3/rshell
+bamor002@well $ bin/rshell 
+bamor002@well.cs.ucr.edu$ ls -R > newFile
+bamor002@well.cs.ucr.edu$ cat newFile
+.:
+bin
+file
+hw3.script
+LICENSE
+ls.o
+main.o
+Makefile
+newFile
+README.md
+src
+tests
+
+./bin:
+ls
+rshell
+
+./src:
+ls.cpp
+main.cpp
+
+./tests:
+exec.script
+ls.script
+bamor002@well.cs.ucr.edu$ cat newFile | ge rep cpp
+ls.cpp
+main.cpp
+bamor002@well.cs.ucr.edu$ cat LICENSE >> out
+bamor002@well.cs.ucr.edu$ cat out #tsti   esting output with comments
+Copyright (c) 2014, Brunna
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the {organization} nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+bamor002@well.cs.ucr.edu$ cat out | grep    head | grep Redistributions
+* Redistributions of source code must retain the above copyright notice, this
+* Redistributions in binary form must reproduce the above copyright notice,
+bamor002@well.cs.ucr.edu$ cat < file #testing input redirection
+Test file a 4
+Test file b 5
+Test file c 1
+Test file d 4
+Test file f 4
+Test file g 2
+
+bamor002@well.cs.ucr.edu$ cat file | grep 4 | gre            grep 4 | grep a #testing piping with comments
+Test file a 4
+bamor002@well.cs.ucr.edu$ #when piping, the history command and ps aux don't work
+bamor002@well.cs.ucr.edu$ cat file          cat file >> out #out file already exists, and has the license info
+bamor002@well.cs.ucr.edu$ cat out
+Copyright (c) 2014, Brunna
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the {organization} nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Test file a 4
+Test file b 5
+Test file c 1
+Test file d 4
+Test file f 4
+Test file g 2
+
+bamor002@well.cs.ucr.edu$ exit
+~/cs100/rshell3/rshell
+bamor002@well $ exit
+exit
+
+Script done on Tue 19 Aug 2014 12:40:15 PM PDT

@@ -4,8 +4,11 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <cstdlib>
+#include <stdlib.h>
+#include <fcntl.h>
 
 using namespace std;
+
 
 //Search for '#' in str[] (user input)
 void comment(char str[], int n) {
@@ -28,6 +31,226 @@ bool background(char str[], int n) {
 	return bg;
 }
 
+int input(char *str[], int n) {
+	int res1 = -1;
+        for (int i = 0; i < n; i ++) {
+		res1 = i;
+		if (strstr(str[i], "<") != NULL) {
+			break;
+                } else {
+			res1 = -1;
+		}
+        }
+        return res1;
+}
+
+
+int output(char *str[], int n) {
+	int res = -1;
+	for (int i = 0; i < n-1; i++) {
+		res = i;
+		if ((strstr(str[i], ">") != NULL) && (strstr(str[i+1], ">") == NULL)) {
+			break;
+		} else {
+			res = -1;
+		}
+	}
+	return res;
+}
+
+
+int output2(char *str[], int n) {
+        int res = -1;
+	for (int i = 0; i < n-1; i++) {
+		res = i;
+		if (strstr(str[i], ">>") != NULL) {
+			str[i] = " ";
+			break;
+		} else {
+			res = -1;
+		}
+	}
+	return res;
+}
+
+
+int findPipe(char *str[], int n) {
+	int res = -1;
+        for (int i = 0; i < n; i++) {
+                res = i;
+                if (strstr(str[i], "|") != NULL) {
+                        break;
+                } else {
+                        res = -1;
+                }
+        }
+        return res;
+}
+
+void in(int index, char *str[]) {
+
+	int fd = open(str[index+1],O_RDONLY );
+	if(fd == -1)
+		perror("open failed");
+	if(-1 == dup2(fd,0))
+		perror("dup2 failed");
+
+	if (index == 1) {
+                if (execvp(str[0], NULL) == -1) {
+                        perror("execvp failed");
+                }
+        } else {
+
+                char *newStr[256];
+                for (int i = 0; i < index; i++) {
+                        newStr[i] = str[i];
+                } 
+               	if (execvp(str[0], newStr) == -1) perror("execv failed");
+        }
+
+}
+
+void out(bool append, int index, char *str[]) {
+
+	int fd;
+
+	if (append) {
+
+		fd=open(str[index+1],O_RDWR|O_CREAT|O_APPEND, 0666);
+		if (fd==-1) {
+			perror("open failed");
+			exit(1);
+		}
+
+	} else {
+		fd=open(str[index+1],O_RDWR|O_CREAT, 0666);
+		if (fd==-1) {
+			perror("open failed");
+			exit(1);
+		}
+	}
+
+
+	if (-1 == dup2(fd,1)) perror ("dup2 failed"); 
+
+	if (index == 1) {
+		if (execvp(str[0], NULL) == -1) {
+                        perror("execvp failed");
+                }
+	} else {
+
+		char *newStr[256];
+		for (int i = 0; i < index; i++) {
+			newStr[i] = str[i];
+		} 
+		if (execvp(str[0], newStr) == -1) perror("execv failed");
+	}
+
+}
+
+
+void piping2(char *str[], int len) {
+
+	int pid = fork();
+	if(pid == -1) {
+		perror("Fork failed");
+	}
+	else if(pid == 0) { 
+		if (len == 1) {
+			if(execvp(str[0], NULL) == -1) {
+                	        perror("Execvp failed.");
+	                }
+        	        exit(1);
+
+		} else {
+			if(execvp(str[0], str) == -1) {
+				perror("Execvp failed.");
+			}
+			exit(1);
+		}
+	} else {
+		if(wait(0) == -1) {
+         	       perror("Wait failed");
+        	}
+	}
+
+}
+
+
+void piping(int index, int strLength, char *str[]) {
+
+	char *part1[256] = {0};
+	char *part2[256] = {0};
+
+	int end = 0;
+	int end2 = 0;
+
+        for (int i = 0; i < index; i++) {
+                part1[i] = str[i];
+		end = i;
+        }
+	part1[end+1] = '\0';
+	for (int i = index+1; i < strLength; i++) {
+		part2[end2] = str[i];
+		end2++;
+	}
+	part2[end2+1] = '\0';
+
+	int fd[2];
+	if (pipe(fd)==-1) {
+		perror ("pipe failed");
+		exit(1);
+	}
+
+
+	int pid = fork();
+
+	if (pid == -1) {
+
+		perror("Fork failed.");
+
+	} else if(pid == 0) {
+		if(close(fd[0]) == -1) {
+			perror("Close failed.");
+		}
+		if(dup2(fd[1],1) == -1) {
+			perror("Dup failed.");
+		}
+		if(-1 == execvp(part1[0], part1)) {
+			perror("Execvp failed.");
+		}
+		exit(1);
+
+	} else { 
+
+		int c_in = dup(0);
+		if(c_in == -1) {
+			perror("Dup failed.");
+		}
+		if(close(fd[1]) == -1) {
+			perror("Close failed.");
+		}
+		if(dup2(fd[0],0) == -1) {
+			perror("Dup failed.");
+		}
+		if(wait(0) == -1) {
+			perror("Wait failed");
+		}
+	
+		int chain = findPipe(part2, end2);
+		if (chain != -1) {
+			piping(chain, end2, part2);
+		} else {
+			piping2(part2, end2);
+		}
+
+		if (dup2(c_in,0) == -1) {
+			perror("Dup failed.");
+		}
+		cout << flush;	
+	}
+}
+
 void prompt(char str[], int n) {
 	char host[50];
         if ((gethostname(host, sizeof(host)-1))==-1) {
@@ -41,7 +264,7 @@ void prompt(char str[], int n) {
 
 	char login[50];
 	
-	if (getlogin_r(login, sizeof(login)-1)-1) {
+	if (getlogin_r(login, sizeof(login)-1)) {
 		login[0] = 'u';
 		login[1] = 's';
 		login[2] = 'r';
@@ -93,6 +316,7 @@ while (true) {
 		exit(0);
 	}
 
+
 	//Executes the command
 	int pid = fork();
 	
@@ -101,10 +325,31 @@ while (true) {
 		exit(1);
 	}
 	if (pid == 0) {
-		if (execvp(result[0], result) == -1) {
-			perror("execvp failed");
+
+		int inputVar = input(result, index);
+		int outputVar = output(result, index);
+		int output2Var = output2(result, index);
+		int pipeVar = findPipe(result, index);
+
+		if (inputVar != -1) { 
+			in(inputVar, result);
+		}
+		else if (output2Var != -1) { 
+			out(true, output2Var, result);
+		}
+		else if (outputVar != -1) { 
+			out(false, outputVar, result);
+		}
+                else if (pipeVar != -1) { 
+			piping(pipeVar, index, result);
+		}
+		else {
+			if (execvp(result[0], result) == -1) {
+				perror("execvp failed");
+			}
 		}
 		exit(0);
+
 	} else {
 		if (!bgProcess) {
 			if (wait(0) == -1) {

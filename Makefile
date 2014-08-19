@@ -1,10 +1,12 @@
 all: rshell ls
 
-rshell: main.o
-	mkdir bin
+bin:
+	[ ! -d bin ] && mkdir bin
+
+rshell: bin main.o
 	g++ main.o -o ./bin/rshell
 
-ls: ls.o
+ls: bin ls.o
 	g++ ls.o -o ./bin/ls
 
 main.o: src/main.cpp
@@ -12,4 +14,3 @@ main.o: src/main.cpp
 
 ls.o: src/ls.cpp
 	g++ -c -Wall -Werror -ansi -pedantic src/ls.cpp
-
