@@ -1,0 +1,115 @@
+Script started on Tue 26 Aug 2014 11:40:06 AM PDT
+~
+bamor002@well $ cd cs100/hw4/rshell/
+~/cs100/hw4/rshell
+bamor002@well $ make
+[ ! -d bin ] && mkdir bin
+g++ -c -Wall -Werror -ansi -pedantic src/main.cpp
+g++ main.o -o ./bin/rshell
+g++ -c -Wall -Werror -ansi -pedantic src/ls.cpp
+g++ ls.o -o ./bin/ls
+~/cs100/hw4/rshell
+bamor002@well $ bin/rshell 
+bamor002@well.cs.ucr.edu$ * #testing current dir
+bamor002@well.cs.ucr.edu$ ls
+bin  hw4.script  LICENSE  ls.o	main.o	Makefile  README.md  src  tests
+/class/classes/bamor002/cs100/hw4/rshell
+bamor002@well.cs.ucr.edu$ ls -l
+total 64
+drwx------ 2 bamor002 classes  4096 Aug 26 11:40 bin
+-rw------- 1 bamor002 classes     0 Aug 26 11:40 hw4.script
+-rw------- 1 bamor002 classes  1483 Aug 26 11:20 LICENSE
+-rw------- 1 bamor002 classes 21584 Aug 26 11:40 ls.o
+-rw------- 1 bamor002 classes 14760 Aug 26 11:40 main.o
+-rw------- 1 bamor002 classes   272 Aug 26 11:20 Makefile
+-rw------- 1 bamor002 classes  1674 Aug 26 11:20 README.md
+drwx------ 2 bamor002 classes  4096 Aug 26 11:32 src
+drwx------ 2 bamor002 classes  4096 Aug 26 11:20 tests
+/class/classes/bamor002/cs100/hw4/rshell
+bamor002@well.cs.ucr.edu$ #test cd
+bamor002@well.cs.ucr.edu$ cd src
+/class/classes/bamor002/cs100/hw4/rshell
+bamor002@well.cs.ucr.edu$ ls
+ls.cpp	main.cpp
+/class/classes/bamor002/cs100/hw4/rshell/src
+bamor002@well.cs.ucr.edu$ cd ..
+/class/classes/bamor002/cs100/hw4/rshell/src
+bamor002@well.cs.ucr.edu$ ls
+bin  hw4.script  LICENSE  ls.o	main.o	Makefile  README.md  src  tests
+/class/classes/bamor002/cs100/hw4/rshell
+bamor002@well.cs.ucr.edu$ cd
+/class/classes/bamor002/cs100/hw4/rshell
+bamor002@well.cs.ucr.edu$ ls
+cs100  Documents
+/class/classes/bamor002
+bamor002@well.cs.ucr.edu$ cd cs100/hw4
+/class/classes/bamor002
+bamor002@well.cs.ucr.edu$ ls
+rshell
+/class/classes/bamor002/cs100/hw4
+bamor002@well.cs.ucr.edu$ cd rshell
+/class/classes/bamor002/cs100/hw4
+bamor002@well.cs.ucr.edu$ ls
+bin  hw4.script  LICENSE  ls.o	main.o	Makefile  README.md  src  tests
+/class/classes/bamor002/cs100/hw4/rshell
+bamor002@well.cs.ucr.edu$ #test command with full path
+bamor002@well.cs.ucr.edu$ /bin/ls -l -a
+total 140
+drwx------ 6 bamor002 classes  4096 Aug 26 11:40 .
+drwx------ 3 bamor002 classes  4096 Aug 26 11:20 ..
+drwx------ 2 bamor002 classes  4096 Aug 26 11:40 bin
+drwx------ 8 bamor002 classes  4096 Aug 26 11:20 .git
+-rw------- 1 bamor002 classes     0 Aug 26 11:40 hw4.script
+-rw------- 1 bamor002 classes  1483 Aug 26 11:20 LICENSE
+-rw------- 1 bamor002 classes 21584 Aug 26 11:40 ls.o
+-rw------- 1 bamor002 classes 14760 Aug 26 11:40 main.o
+-rw------- 1 bamor002 classes   272 Aug 26 11:20 Makefile
+-rw------- 1 bamor002 classes 65536 Aug 26 11:39 .nfs0000000000a797d100000d5b
+-rw------- 1 bamor002 classes  1674 Aug 26 11:20 README.md
+drwx------ 2 bamor002 classes  4096 Aug 26 11:32 src
+drwx------ 2 bamor002 classes  4096 Aug 26 11:20 tests
+/class/classes/bamor002/cs100/hw4/rshell
+bamor002@well.cs.ucr.edu$ /bin/ls -a   
+bin  hw4.script  LICENSE  ls.o	main.o	Makefile  README.md  src  tests
+/class/classes/bamor002/cs100/hw4/rshell
+bamor002@well.cs.ucr.edu$ #test ctrl+c
+bamor002@well.cs.ucr.edu$ 
+bamor002@well.cs.ucr.edu$ ls
+bin  hw4.script  LICENSE  ls.o	main.o	Makefile  README.md  src  tests
+/class/classes/bamor002/cs100/hw4/rshell
+bamor002@well.cs.ucr.edu$ cat LICENSE
+Copyright (c) 2014, Brunna
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the {organization} nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+/class/classes/bamor002/cs100/hw4/rshell
+bamor002@well.cs.ucr.edu$ exit
+~/cs100/hw4/rshell
+bamor002@well $ exit
+exit
+
+Script done on Tue 26 Aug 2014 11:44:06 AM PDT

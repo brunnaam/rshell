@@ -6,6 +6,8 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <dirent.h>
+#include <signal.h>
 
 using namespace std;
 
@@ -87,7 +89,24 @@ int findPipe(char *str[], int n) {
         return res;
 }
 
-void in(int index, char *str[]) {
+void myexec(char **path, char *result[]) {
+	int erro;
+	char *p = new char[1024];
+
+        for(int i = 0; path[i] != NULL; i++) {
+        	strcpy(p, path[i]);
+                strcat(p, "/");
+                strcat(p, result[0]);
+
+                cout << "";
+                erro = execv(p, result);
+        }
+
+	if (erro == -1) perror("Execv failed.");
+
+}
+
+void in(int index, char *str[], char **path) {
 
 	int fd = open(str[index+1],O_RDONLY );
 	if(fd == -1)
@@ -96,16 +115,18 @@ void in(int index, char *str[]) {
 		perror("dup2 failed");
 
 	if (index == 1) {
-                if (execvp(str[0], NULL) == -1) {
-                        perror("execvp failed");
-                }
+//                if (execvp(str[0], NULL) == -1) {
+//                        perror("execvp failed");
+//                }
+		myexec(path, str);
         } else {
 
                 char *newStr[256];
                 for (int i = 0; i < index; i++) {
                         newStr[i] = str[i];
                 } 
-               	if (execvp(str[0], newStr) == -1) perror("execv failed");
+               	//if (execvp(str[0], newStr) == -1) perror("execv failed");
+		myexec(path, newStr);
         }
 
 }
@@ -284,9 +305,45 @@ void prompt(char str[], int n) {
 }
 
 
+int mystrcmp(char const *p, char const *q)
+{
+        int i = 0;
+        for(i = 0;q[i];i++) {
+                if(p[i] != q[i])
+                        return -1;
+        }
+        return 0;
+}
+
+void handler(int sig) {
+      	signal(SIGINT,SIG_IGN);
+}
+
+
 int main(int argc, char** argv) {
 
+int index2 = 0;
+string key = "PATH";
+char *pch2;
+char *env = getenv(key.c_str());
+pch2 = strtok(env, ":");
+char **path;
+path = new char*[2048];
+
+while (pch2 != NULL) {
+        path[index2] = pch2;
+        index2++;
+        pch2 = strtok (NULL, ":\n");
+}
+
+path[index2] = NULL;
+
+
 while (true) {
+
+	char currentDir[1024];
+        if(!getcwd(currentDir, 1024)) perror("Getcwd failed. ");
+
 
 	char str[256];
 	prompt(str, 256);
@@ -317,6 +374,19 @@ while (true) {
 	}
 
 
+	signal(SIGINT, handler);
+
+        if (mystrcmp(result[0],"cd") == 0) {
+                if (index == 1) {
+                        char *home = getenv("HOME");
+                        if(chdir(home) == -1) perror("Chdir failed. ");
+                } else {
+                        if(-1 == chdir(result[1])) perror("Chdir failed. ");
+                }
+        }
+
+
+
 	//Executes the command
 	int pid = fork();
 	
@@ -332,7 +402,7 @@ while (true) {
 		int pipeVar = findPipe(result, index);
 
 		if (inputVar != -1) { 
-			in(inputVar, result);
+			in(inputVar, result, path);
 		}
 		else if (output2Var != -1) { 
 			out(true, output2Var, result);
@@ -344,9 +414,27 @@ while (true) {
 			piping(pipeVar, index, result);
 		}
 		else {
-			if (execvp(result[0], result) == -1) {
-				perror("execvp failed");
-			}
+
+			if (mystrcmp(result[0],"cd") != 0) {
+                                int erro;
+                                char *p = new char[1024];
+
+				erro = execv(result[0], result);
+
+                                for(int i = 0; path[i] != NULL; i++) {
+                                        strcpy(p, path[i]);
+                                        strcat(p, "/");
+                                        strcat(p, result[0]);
+
+                                        cout << "";
+                                        erro = execv(p, result);
+                                }
+
+                                if (erro == -1) perror("execv failed");
+                                delete[] p;
+			//	myexec(path, result);
+                        }
+
 		}
 		exit(0);
 
@@ -357,7 +445,7 @@ while (true) {
 			}
 		}
 	}
-
+	cout << currentDir << endl;
 }
 
 return 0;
