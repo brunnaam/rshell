@@ -38,3 +38,8 @@ RSHELL V.2 BUGS
 2. The user input has to be separated by spaces, or it will return error, i.e: command [args] <'>>','>','<','|'> output.
 3. It's not possible use input redirection, output redirection and piping in the same user input.
 4. When piping, it is possible to use mutiple piping, but with input and output redirection it isn't.
+
+RSHELL V.3 BUGS
+
+1. Sometimes, input and output redirection don't work.
+2. Ctrl+C will exit rshell if there is no process running in the shell.
